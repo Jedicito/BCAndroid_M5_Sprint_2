@@ -11,16 +11,16 @@
         android:label="fragment_listado"
         tools:layout="@layout/fragment_listado" >
         <action
-            android:id="@+id/action_listadoFragment_to_itemFragment"
-            app:destination="@id/itemFragment" />
+            android:id="@+id/action_listadoFragment_to_articuloFragment"
+            app:destination="@id/articuloFragment" />
     </fragment>
     <fragment
-        android:id="@+id/itemFragment"
-        android:name="chl.ancud.m5_sprint_2.ItemFragment"
-        android:label="fragment_item"
-        tools:layout="@layout/fragment_item" >
+        android:id="@+id/articuloFragment"
+        android:name="chl.ancud.m5_sprint_2.ArticuloFragment"
+        android:label="fragment_articulo"
+        tools:layout="@layout/fragment_articulo" >
         <action
-            android:id="@+id/action_itemFragment_to_listadoFragment"
+            android:id="@+id/action_articuloFragment_to_listadoFragment"
             app:destination="@id/listadoFragment" />
     </fragment>
 </navigation>

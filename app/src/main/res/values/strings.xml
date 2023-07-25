@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btnCarrito">Agregar al carrito</string>
+    <string name="rbChico">Chico</string>
+    <string name="rbMediano">Mediano</string>
+    <string name="rbGrande">Grande</string>
 </resources>

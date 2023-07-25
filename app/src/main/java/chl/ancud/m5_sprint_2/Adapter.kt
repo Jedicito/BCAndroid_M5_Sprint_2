@@ -1,8 +1,10 @@
 package chl.ancud.m5_sprint_2
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import chl.ancud.m5_sprint_2.databinding.FragmentItemBinding
 import coil.load
@@ -21,6 +23,12 @@ class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
 
             binding.constraintLayoutItem.setOnClickListener{
                 Toast.makeText(this.itemView.context,"${zapato.nombre} presionado", Toast.LENGTH_SHORT).show()
+                val bundle = Bundle().apply {
+                    putString("nombre", zapato.nombre)
+                    putDouble("precio", zapato.precio)
+                    putString("foto", zapato.foto)
+                }
+                Navigation.findNavController(binding.root).navigate(R.id.articuloFragment, bundle)
             }
         }
     }

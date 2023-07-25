@@ -8,7 +8,7 @@
     tools:context=".ArticuloFragment">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgFotoArticulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -18,23 +18,23 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvNombreArticulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFotoArticulo" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvPrecioArticulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/tvNombreArticulo"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreArticulo" />
 
     <RadioGroup
         android:id="@+id/rgTalla"
@@ -45,7 +45,7 @@
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/tvPrecioArticulo">
 
         <RadioButton
             android:id="@+id/rbChico"
@@ -65,4 +65,15 @@
             android:layout_height="wrap_content"
             android:text="@string/rbGrande" />
     </RadioGroup>
+
+    <ImageButton
+        android:id="@+id/btnCarritoArticulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/btnCarrito"
+        android:minHeight="48dp"
+        android:src="@drawable/baseline_add_shopping_cart_24"
+        app:layout_constraintEnd_toEndOf="@+id/rgTalla"
+        app:layout_constraintTop_toBottomOf="@+id/rgTalla" />
 </androidx.constraintlayout.widget.ConstraintLayout>

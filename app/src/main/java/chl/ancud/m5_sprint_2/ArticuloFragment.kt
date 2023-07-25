@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.Navigation
+import chl.ancud.m5_sprint_2.databinding.FragmentArticuloBinding
+import coil.load
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val NOMBRE = "nombre"
+private const val PRECIO = "precio"
+private const val FOTO = "foto"
 
 /**
  * A simple [Fragment] subclass.
@@ -18,14 +23,18 @@ private const val ARG_PARAM2 = "param2"
  */
 class ArticuloFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var nombre: String? = null
+    private var precio: Double? = null
+    private var foto: String? = null
+
+    private lateinit var binding: FragmentArticuloBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            nombre = it.getString(NOMBRE)
+            precio = it.getDouble(PRECIO)
+            foto = it.getString(FOTO)
         }
     }
 
@@ -34,8 +43,25 @@ class ArticuloFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_articulo, container, false)
+        binding = FragmentArticuloBinding.inflate(LayoutInflater.from(activity))
+
+        bind()
+
+        return binding.root
+
     }
+
+    fun bind() {
+        binding.tvNombreArticulo.text = nombre
+        binding.tvPrecioArticulo.text = precio.toString()
+        binding.imgFotoArticulo.load(foto)
+
+        binding.btnCarritoArticulo.setOnClickListener {
+            Toast.makeText(this.context, "Producto $nombre agregado al carrito", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
 
     companion object {
         /**
@@ -51,8 +77,10 @@ class ArticuloFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             ArticuloFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(NOMBRE, nombre)
+                    putDouble(PRECIO, precio!!)
+                    putString(FOTO, foto)
+
                 }
             }
     }
